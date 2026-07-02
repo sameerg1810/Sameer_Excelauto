@@ -95,15 +95,16 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1281,1063" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1055,1731" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="450,535" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="450,1296" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="YourName" />
+        <Variable x:TypeArguments="x:String" Name="OutputFile" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -115,27 +116,39 @@
           <OutArgument x:TypeArguments="x:String">[YourName]</OutArgument>
         </ui:InputDialog.Result>
       </ui:InputDialog>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="GreetingBox - Invoke Workflow File (GreetingBox.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="GreetingBox.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="GreetingBox - Invoke Workflow File (GreetingBox.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="GreetingBox.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="Name">[YourName]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
+      <uga:SendEmailConnections ArgumentAttachmentPaths="{x:Null}" ArgumentAttachments="{x:Null}" AttachmentPaths="{x:Null}" Attachments="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ReplyTo="{x:Null}" SingleAttachment="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="UseExisting" AuthScopesInvalid="False" Body="[string.Format(&quot;&lt;P&gt;&lt;SPAN&gt;&amp;quot;&lt;/SPAN&gt;&lt;SPAN&gt;Thanks For using Uipath Auto mation tool&lt;/SPAN&gt;&lt;SPAN&gt;&amp;quot;&lt;/SPAN&gt;&lt;/P&gt;&quot;)]" ConnectionId="0ba3bfd1-f0b9-4c5f-b4cf-7bdbf4eaaf1e" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="416,514" sap2010:WorkflowViewState.IdRef="SendEmailConnections_1" Importance="Normal" InputType="HTML" SaveAsDraft="False" Subject="[&quot;Hii this is NT Rama rao&quot; &amp; YourName]" To="[New String(){&quot;gorrepatisameer@gmail.com&quot;}]" UseConnectionService="True">
+        <uga:SendEmailConnections.AttachmentsBackup>
+          <usau:BackupSlot x:TypeArguments="ugage:AttachmentInputMode" StoredValue="UseExisting">
+            <usau:BackupSlot.BackupValues>
+              <scg:Dictionary x:TypeArguments="ugage:AttachmentInputMode, scg:List(x:Object)" />
+            </usau:BackupSlot.BackupValues>
+          </usau:BackupSlot>
+        </uga:SendEmailConnections.AttachmentsBackup>
+        <uga:SendEmailConnections.InputTypeBackup>
+          <usau:BackupSlot x:TypeArguments="ugage:BodyInputType" StoredValue="HTML">
+            <usau:BackupSlot.BackupValues>
+              <scg:Dictionary x:TypeArguments="ugage:BodyInputType, scg:List(x:Object)" />
+            </usau:BackupSlot.BackupValues>
+          </usau:BackupSlot>
+        </uga:SendEmailConnections.InputTypeBackup>
+      </uga:SendEmailConnections>
+      <ui:ReadTextFile FileName="{x:Null}" Content="[OutputFile]" DisplayName="Read Text File" Encoding="0" File="[LocalResource.FromPath(&quot;project.json&quot;)]" sap:VirtualizedContainerService.HintSize="416,124" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,114" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[OutputFile.ToString]" />
     </Sequence>
-    <uga:SendEmailConnections ArgumentAttachmentPaths="{x:Null}" ArgumentAttachments="{x:Null}" AttachmentPaths="{x:Null}" Attachments="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ReplyTo="{x:Null}" SingleAttachment="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="UseExisting" AuthScopesInvalid="False" Body="[string.Format(&quot;&lt;P&gt;&lt;SPAN&gt;&amp;quot;&lt;/SPAN&gt;&lt;SPAN&gt;Thanks For using Uipath Auto mation tool&lt;/SPAN&gt;&lt;SPAN&gt;&amp;quot;&lt;/SPAN&gt;&lt;/P&gt;&quot;)]" ConnectionId="0ba3bfd1-f0b9-4c5f-b4cf-7bdbf4eaaf1e" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="450,505" sap2010:WorkflowViewState.IdRef="SendEmailConnections_1" Importance="Normal" InputType="HTML" SaveAsDraft="False" Subject="Hii this is NT Rama rao" To="[New String(){&quot;gorrepatisameer@gmail.com&quot;}]" UseConnectionService="True">
-      <uga:SendEmailConnections.AttachmentsBackup>
-        <usau:BackupSlot x:TypeArguments="ugage:AttachmentInputMode" StoredValue="UseExisting">
-          <usau:BackupSlot.BackupValues>
-            <scg:Dictionary x:TypeArguments="ugage:AttachmentInputMode, scg:List(x:Object)" />
-          </usau:BackupSlot.BackupValues>
-        </usau:BackupSlot>
-      </uga:SendEmailConnections.AttachmentsBackup>
-      <uga:SendEmailConnections.InputTypeBackup>
-        <usau:BackupSlot x:TypeArguments="ugage:BodyInputType" StoredValue="HTML">
-          <usau:BackupSlot.BackupValues>
-            <scg:Dictionary x:TypeArguments="ugage:BodyInputType, scg:List(x:Object)" />
-          </usau:BackupSlot.BackupValues>
-        </usau:BackupSlot>
-      </uga:SendEmailConnections.InputTypeBackup>
-    </uga:SendEmailConnections>
+    <ui:AddLogFields DisplayName="Add Log Fields" sap:VirtualizedContainerService.HintSize="450,123" sap2010:WorkflowViewState.IdRef="AddLogFields_1">
+      <ui:AddLogFields.Fields>
+        <InArgument x:TypeArguments="x:String" x:Key="MyAddress">Guntur</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="MyPhone">4200</InArgument>
+        <InArgument x:TypeArguments="x:Object" x:Key="TaxType">["VAT"]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="HisName">[PassedName]</InArgument>
+      </ui:AddLogFields.Fields>
+    </ui:AddLogFields>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;The New Data&quot;]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Execution completed&quot;]" />
   </Sequence>
 </Activity>
