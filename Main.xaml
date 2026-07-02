@@ -139,7 +139,7 @@
       </uga:SendEmailConnections>
       <ui:ReadTextFile FileName="{x:Null}" Content="[OutputFile]" DisplayName="Read Text File" Encoding="0" File="[LocalResource.FromPath(&quot;project.json&quot;)]" sap:VirtualizedContainerService.HintSize="416,124" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
       <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,123" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[OutputFile.ToString]" />
-      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,114" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="New feature" />
+      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,114" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="New Line" />
     </Sequence>
     <ui:AddLogFields DisplayName="Add Log Fields" sap:VirtualizedContainerService.HintSize="450,123" sap2010:WorkflowViewState.IdRef="AddLogFields_1">
       <ui:AddLogFields.Fields>
