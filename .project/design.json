@@ -1,0 +1,13 @@
+{
+  "Tags": [
+    {
+      "Key": "Test"
+    }
+  ],
+  "SeparateRuntimeDependencies": true,
+  "IncludeSources": true,
+  "ConnectorKeys": [
+    "uipath-google-gmail",
+    "uipath-microsoft-github"
+  ]
+}
